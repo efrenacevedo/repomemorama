@@ -1,0 +1,98 @@
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+}
+
+.game-board {
+  display: grid;
+  gap: 10px;
+  justify-content: center;
+  margin: 20px auto;
+  max-width: 400px; /* Limita el ancho máximo para que se centren mejor */
+}
+
+.controls, .score-panel {
+  margin: 15px 0;
+}
+
+.card {
+  width: 80px;
+  height: 100px;
+  perspective: 1000px;
+  cursor: pointer;
+}
+
+.card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+
+.card.flip .card-inner {
+  transform: rotateY(180deg);
+}
+
+.card-front, .card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backface-visibility: hidden;
+  font-size: 16px;
+}
+
+.card-back {
+  background: lightblue;
+  color: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  transform: rotateY(180deg);
+}
+
+.card-front {
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+}
+#scoreBoardContainer {
+  margin-top: 20px;
+  text-align: center;
+}
+
+#scoreBoard {
+  margin: 0 auto;
+  width: 80%;
+  border-collapse: collapse;
+}
+
+#scoreBoard th, #scoreBoard td {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#scoreBoard th {
+  background-color: #f2f2f2;
+}

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Memorama: Vector Gradiente y Derivada Direccional</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Memorama de Vector Gradiente y Derivada Direccional</h1>
+  <div class="controls">
+    <label for="difficulty">Selecciona dificultad:</label>
+    <select id="difficulty">
+      <option value="6">Fácil (6 cartas)</option>
+      <option value="10">Normal (10 cartas)</option>
+      <option value="14">Difícil (14 cartas)</option>
+    </select>
+    <button id="startGame">Iniciar Juego</button>
+  </div>
+  
+  <div id="gameBoard" class="game-board"></div>
+
+  <div class="score-panel">
+    <p>Puntaje: <span id="score">0</span></p>
+    <p>Errores: <span id="errors">0</span></p>
+  </div>
+  <div id="scoreBoardContainer">
+    <h2>Tabla de Puntuaciones</h2>
+    <table id="scoreBoard">
+      <thead>
+        <tr>
+          <th>Jugador</th>
+          <th>Puntuación</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </div>
+  
+  <!-- Modal para mostrar felicitaciones -->
+  <div id="winModal" class="modal">
+    <div class="modal-content">
+      <h2>¡Felicidades, has completado el juego!</h2>
+      <p>Ingresa tu nombre:</p>
+      <input type="text" id="playerName">
+      <button id="saveScore">Guardar puntaje</button>
+      <button id="closeModal">Cerrar</button>
+    </div>
+  </div>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      document.getElementById('startGame').addEventListener('click', startGame);
+      document.getElementById('saveScore').addEventListener('click', () => {
+        const playerName = playerNameInput.value;
+        console.log(`Jugador: ${playerName}, Puntaje: ${score}`);
+        winModal.style.display = 'none';
+      });
+    });
+    document.getElementById("saveScore").addEventListener("click", () => {
+    const playerName = playerNameInput.value;
+    saveScore(playerName, score);
+    winModal.style.display = "none";
+    resetGame(); // Reinicia el juego si deseas
+    });
+
+  </script>
+  
+  <script src="script.js"></script>
+</body>
+</html>
